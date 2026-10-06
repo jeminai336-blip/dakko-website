@@ -6,7 +6,7 @@ test('본문과 핵심 정보는 자바스크립트 없이 HTML에 포함된다'
  const html = render();
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  for(const text of ['양념한 오돌뼈와 밥','1996년','2대째','동암광장로8번길 5','17:00 ~ 23:00','22:30','매주 일요일']) assert.ok(html.includes(text));
- for(const id of ['odolbap','story','charcoal','baseball','records','menu','visit']) assert.ok(html.includes(`id="${id}"`));
+ for(const id of ['odolbap','story','baseball','records','menu','visit']) assert.ok(html.includes(`id="${id}"`));
  const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
  assert.equal(schema['@type'],'Restaurant');
  assert.equal(schema.openingHoursSpecification[0].dayOfWeek.length,6);
@@ -44,7 +44,8 @@ test('V3 섹션과 내비게이션이 고객 흐름 순서를 유지한다', () 
  assert.ok(positions.every((p,i)=>p>=0 && (!i||p>positions[i-1])));
  const nav=html.match(/<nav[^>]*>(.*?)<\/nav>/s)[1];
  assert.deepEqual([...nav.matchAll(/href="#(.*?)"/g)].map(m=>m[1]),['story','menu','odolbap','baseball','records','visit']);
- assert.ok(html.indexOf('id="charcoal"')>positions[1] && html.indexOf('id="charcoal"')<positions[2]);
+ assert.ok(!html.includes('id="charcoal"'));
+ assert.ok(!html.includes('주문 후 숯불에 직접 구워냅니다.'));
  assert.ok(!html.includes('occasions'));
 });
 test('HERO 핵심 메시지, 8개 사진 슬롯과 미확인 전화 비노출',()=>{
