@@ -172,8 +172,9 @@ if (film) {
     const placeholder = img.nextElementSibling;
     const update = () => {
       const loaded = img.complete && img.naturalWidth > 0;
-      img.classList.toggle('is-loaded', loaded);
-      placeholder.hidden = loaded;
+      const failed = img.complete && !loaded;
+      img.hidden = failed;
+      placeholder.hidden = !failed;
     };
     img.addEventListener('load', update);
     img.addEventListener('error', update);

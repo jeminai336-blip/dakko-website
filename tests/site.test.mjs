@@ -99,5 +99,7 @@ test('역사 사진은 레이아웃에 남아 지연 로딩이 시작될 수 있
  const images=html.match(/<img class="history-image"[^>]*>/g)||[];
  assert.equal(images.length,site.history.length);
  assert.ok(images.every(tag=>!tag.includes(' hidden')));
- assert.ok(images.every(tag=>tag.includes('loading="lazy"')));
+ assert.ok(images[0].includes('loading="eager"'));
+ assert.ok(images.slice(1).every(tag=>tag.includes('loading="lazy"')));
+ assert.ok(html.includes('class="film-placeholder" hidden'));
 });
