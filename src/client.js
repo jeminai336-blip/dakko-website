@@ -208,3 +208,12 @@ if (film) {
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(film);
   sync();
 }
+
+const odolbapVideo = document.querySelector('.odolbap-video');
+if (odolbapVideo) {
+  odolbapVideo.muted = true;
+  odolbapVideo.addEventListener('error', () => {
+    odolbapVideo.hidden = true;
+    odolbapVideo.nextElementSibling.hidden = false;
+  });
+}

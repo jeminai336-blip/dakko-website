@@ -103,3 +103,9 @@ test('역사 사진은 레이아웃에 남아 지연 로딩이 시작될 수 있
  assert.ok(images.slice(1).every(tag=>tag.includes('loading="lazy"')));
  assert.ok(html.includes('class="film-placeholder" hidden'));
 });
+
+test('오돌밥 영상은 Pages 경로와 모바일 반복 재생 설정을 사용한다', () => {
+ const html=render({...site,SITE_URL:'https://jeminai336-blip.github.io/dakko-website/'});
+ assert.ok(html.includes('src="/dakko-website/videos/odolbap.mp4" autoplay muted loop playsinline controls'));
+ assert.ok(!render({...site,odolbapVideo:''}).includes('<video'));
+});
