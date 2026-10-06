@@ -6,7 +6,7 @@ export const site = {
   SITE_URL: '',
   NAVER_PLACE_URL: 'https://naver.me/GdycDMU8', NAVER_DIRECTIONS_URL: '', PHONE_NUMBER: '',
   INSTAGRAM_URL: '', YOUTUBE_URL: '', GOOGLE_MAP_URL: '',
-  station: '동암역 2번 출구 북광장 인근',
+  station: '동암역 북광장 2번출구 50m',
   // 주소·영업시간은 화면과 JSON-LD가 같은 데이터에서 읽습니다.
   structuredAddress: { streetAddress: '동암광장로8번길 5 조은빌딩 101호', addressLocality: '부평구', addressRegion: '인천', addressCountry: 'KR' },
   lastOrder: '22:30', closed: '매주 일요일',
