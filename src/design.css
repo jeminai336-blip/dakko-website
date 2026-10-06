@@ -604,3 +604,8 @@ body {
 .story-comic { display: grid; gap: 12px; }
 .story-comic-panel { position: relative; overflow: hidden; aspect-ratio: 1456 / 736; }
 .story-comic-panel img { position: absolute; width: 200%; height: 200%; max-width: none; left: var(--panel-x); top: var(--panel-y); object-fit: fill; }
+
+/* 방송 기록 사진은 원본 비율대로, 자르지 않고 표시합니다. */
+.broadcast-photo { margin-top: 32px; padding: 5px; border: 1px solid #ac865b; border-radius: 6px; overflow: hidden; }
+.broadcast-photo .photo-image { height: auto; object-fit: contain; }
+.broadcast-photo .photo-placeholder { min-height: 240px; aspect-ratio: 2 / 1; }
