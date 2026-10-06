@@ -350,3 +350,157 @@ img { filter: none; }
   .hero-slider .since-badge { width: 80px; height: 80px; }
   .hero-slider .since-badge strong { font-size: 24px; }
 }
+
+/* 노포 메뉴판의 구성: 첫 화면을 한 장의 인쇄물로 묶습니다. */
+.hero {
+  position: relative;
+  margin-block: 28px 44px;
+  padding: 28px 22px 24px;
+  border: 6px double #755c3d;
+  background-color: #f3e7cb;
+  background-image: var(--paper-fiber);
+  gap: 32px;
+  box-shadow: 0 4px 0 #c8b38b;
+}
+.hero-copy > .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 0 10px;
+  border-bottom: 2px solid #9a7551;
+  letter-spacing: 1.1px;
+}
+.hero h1, .hero h1 .hero-brand, .hero h1 .hero-era { font-family: inherit; }
+.hero .brand-statement { border-left: 3px double #986142; }
+.hero-actions .button { border-radius: 0; }
+.hero .hero-note { border-top: 1px solid #cab38e; padding-top: 14px; }
+/* 제목은 작은 장식이 아닌, 인쇄 메뉴판의 제목으로 읽히게 합니다. */
+main > section:not(.hero):not(.visit-section) h2, .charcoal-title {
+  font-family: 'Dakko Section Print', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  letter-spacing: -.7px;
+  text-shadow: .6px 0 currentColor, -.6px 0 currentColor;
+  line-height: 1.35;
+}
+.section-head > div > .eyebrow, .baseball-layout > div > .eyebrow {
+  display: inline-block;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 7px;
+}
+/* 역사: 사진 페이지와 글 페이지가 한 권의 사진첩을 이룹니다. */
+.story-section { background: #d8c3a0; padding-block: 58px; }
+.story-layout {
+  position: relative;
+  background: #f0e3c6;
+  border: 1px solid #a88b62;
+  outline: 3px double #baa076;
+  outline-offset: 5px;
+  padding: 25px 20px;
+  gap: 35px;
+  box-shadow: 0 5px 0 #b99e76;
+}
+.history-photo {
+  position: relative;
+  background: #fcf3df;
+  padding: 12px 12px 36px;
+  border: 1px solid #bda17a;
+  outline: none;
+  aspect-ratio: 1;
+  transform: rotate(-1deg);
+}
+.history-photo::before, .history-photo::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #876b49;
+  border-style: solid;
+  pointer-events: none;
+}
+.history-photo::before { top: -1px; left: -1px; border-width: 4px 0 0 4px; }
+.history-photo::after { bottom: -1px; right: -1px; border-width: 0 4px 4px 0; }
+.story-copy { padding-inline: 4px; }
+.story-copy > .eyebrow { border-color: #872b24; color: #872b24; background: transparent; }
+.timeline { padding-top: 24px; border-top: 3px double #8b6846; }
+.timeline strong { font-size: 42px; color: #872b24; }
+.timeline > div { padding-bottom: 8px; }
+/* 메뉴: 분류와 번호, 메뉴명과 설명을 한 줄씩 읽는 인쇄 메뉴판. */
+.menu-section { background: #e2ceaa; padding-block: 58px; }
+.menu-section > .wrap {
+  background: #f2e5c6;
+  background-image: var(--paper-fiber);
+  border: 6px double #8b6d48;
+  padding: 28px 20px;
+}
+.menu-section > .wrap > .section-head { border-bottom: 4px double #8b6d48; padding-bottom: 25px; }
+.menu-grid { grid-template-columns: 1fr; gap: 0; }
+.menu-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 0;
+  border-bottom: 1px solid #baa07a;
+  padding: 23px 0;
+  background: transparent;
+}
+.menu-card-top { justify-content: flex-start; gap: 14px; font-size: 12px; }
+.menu-card-top span:last-child { order: -1; font-size: 21px; font-weight: 700; color: #872b24; }
+.menu-card h3 { font-size: 24px; margin-block: 12px 9px; font-weight: 800; color: #28221e; }
+.menu-card p { max-width: none; font-size: 14px; }
+.charcoal-feature { margin: 34px 0 0; padding: 28px 16px; outline-offset: 3px; }
+.charcoal-feature .section-head { margin-bottom: 30px; }
+.charcoal-feature .section-intro { min-width: 0; }
+.charcoal-title { font-size: 27px; }
+.charcoal-feature .charcoal-photo { aspect-ratio: 1.05; }
+.menu-bottom { margin-top: 24px; }
+/* 기록은 정돈된 자료로, 방문 안내는 기존 가독성 중심 구성을 유지합니다. */
+.record-list { padding-inline: 14px; border-inline: 1px solid #baa07a; background: #f6ead0; }
+.record:last-child { border-bottom: 1px solid #baa07a; }
+@media (min-width: 600px) {
+  .hero { padding: 36px 32px; margin-block: 30px 55px; }
+  .story-layout { padding: 38px 32px; }
+  .history-photo { aspect-ratio: 1.25; }
+  .menu-section > .wrap { padding: 38px 32px; }
+  .menu-card { grid-template-columns: 1fr 1.15fr; column-gap: 35px; align-items: start; }
+  .menu-card-top { grid-column: 1; }
+  .menu-card h3 { grid-column: 1; }
+  .menu-card p { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+  .menu-price { grid-column: 2; }
+  .charcoal-feature { padding: 36px 28px; }
+  .charcoal-feature .charcoal-photo { aspect-ratio: 1.7; }
+}
+@media (min-width: 1100px) {
+  .hero { padding: 40px 42px 36px; gap: 42px; }
+  .hero-copy > .eyebrow { font-size: 12px; }
+  .story-layout { grid-template-columns: 1fr 1fr; gap: 64px; padding: 48px 40px; }
+  .story-layout::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    bottom: 22px;
+    left: 50%;
+    width: 1px;
+    background: #c2aa81;
+    box-shadow: 4px 0 0 #e1cfae;
+    pointer-events: none;
+  }
+  .history-photo { aspect-ratio: 1; padding: 14px 14px 42px; }
+  .story-copy { padding-inline: 8px 0; }
+  .timeline strong { font-size: 48px; }
+  .menu-section > .wrap { padding: 45px 42px; }
+  .menu-card { grid-template-columns: 1fr 1.25fr; padding-block: 28px; gap: 0 60px; }
+  .menu-card h3 { font-size: 29px; margin-top: 13px; }
+  .menu-card p { font-size: 16px; }
+  .menu-card-top { font-size: 13px; }
+  .charcoal-feature { padding: 44px 36px; }
+  .charcoal-feature .charcoal-photo { aspect-ratio: 2.05; }
+  .record-list { padding-inline: 25px; }
+}
+@media (max-width: 360px) {
+  .hero { padding: 24px 14px 20px; }
+  .hero-actions .unavailable { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .hero h1 { letter-spacing: -1.8px; }
+  .story-layout { padding: 23px 14px; }
+  .menu-section > .wrap { padding: 25px 14px; }
+  .menu-card h3 { font-size: 22px; }
+  .charcoal-feature { padding-inline: 12px; }
+  .charcoal-title { font-size: 24px; }
+}
