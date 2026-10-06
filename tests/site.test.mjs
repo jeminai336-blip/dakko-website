@@ -40,11 +40,11 @@ test('GitHub Pages 저장소 하위 경로에서 CSS, JS, 이미지 주소를 �
 });
 test('V3 섹션과 내비게이션이 고객 흐름 순서를 유지한다', () => {
  const html=render();
- const positions=['story','odolbap','menu','baseball','records','visit'].map(id=>html.indexOf(`<section id="${id}"`));
+ const positions=['story','menu','odolbap','baseball','records','visit'].map(id=>html.indexOf(`<section id="${id}"`));
  assert.ok(positions.every((p,i)=>p>=0 && (!i||p>positions[i-1])));
  const nav=html.match(/<nav[^>]*>(.*?)<\/nav>/s)[1];
- assert.deepEqual([...nav.matchAll(/href="#(.*?)"/g)].map(m=>m[1]),['story','odolbap','menu','baseball','records','visit']);
- assert.ok(html.indexOf('id="charcoal"')>positions[2] && html.indexOf('id="charcoal"')<positions[3]);
+ assert.deepEqual([...nav.matchAll(/href="#(.*?)"/g)].map(m=>m[1]),['story','menu','odolbap','baseball','records','visit']);
+ assert.ok(html.indexOf('id="charcoal"')>positions[1] && html.indexOf('id="charcoal"')<positions[2]);
  assert.ok(!html.includes('occasions'));
 });
 test('HERO 핵심 메시지, 8개 사진 슬롯과 미확인 전화 비노출',()=>{
