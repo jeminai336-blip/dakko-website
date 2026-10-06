@@ -67,10 +67,10 @@ export const site = {
   ],  // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
   baseballArchive: [], // { photo: 'photos의 키', title: '확인된 제목', description: '확인된 내용', date: '확인된 날짜(선택)' }
   menus: [
-    { category: '처음 오셨다면', name: '오돌밥 + 닭발', description: '양념한 오돌뼈와 밥을 비벼 김에 싸 먹는 닥코의 대표 메뉴.', price: null },
-    { category: '닥코의 본질', name: '숯불 통닭발 · 무뼈닭발', variants: ['숯불 통닭발', '숯불 무뼈닭발'], description: '주문 후 숯불에 직접 구워내는 닭발. 취향에 맞게 골라주세요.', price: null },
-    { category: '여럿이 함께라면', name: '닭도리탕 · 곱도리탕', description: '여럿이 둘러앉아 함께 즐기는 메뉴.', price: null },
-    { category: '함께 즐기기', name: '세트 · 사이드', description: '구성과 가격은 최신 메뉴판에서 확인해주세요.', price: null },
+    { category: '처음 오셨다면', name: '오돌밥 + 숯불 무뼈닭발', description: '야구선수들이 즐겨 찾았던 오돌밥에 숯불 무뼈닭발을 함께 드셔보세요.\n오돌밥의 감칠맛에 무뼈닭발의 불맛이 더해지는 닥코의 추천 조합입니다.', price: null },
+    { category: '닥코의 본질', name: '숯불 통닭발 · 숯불 무뼈닭발', variants: ['숯불 통닭발', '숯불 무뼈닭발'], description: '1996년부터 이어온 닥코의 중심은 닭발입니다.\n주문이 들어오면 숯불에 직접 구워 불맛을 입혀냅니다. 뼈째 뜯는 통닭발과 먹기 편한 무뼈닭발, 취향에 맞게 골라보세요.', price: null },
+    { category: '여럿이 함께라면', name: '닭도리탕 · 곱도리탕', description: '친구·가족·직장 동료와 둘러앉아 한잔하기 좋은 메뉴입니다.\n보글보글 끓는 닭도리탕과 곱도리탕에 술 한잔, 편하게 오래 이야기 나누는 닥코의 또 다른 즐거움입니다.', price: null },
+    { category: '함께 즐기기', name: '세트 · 사이드', description: '닭발에는 오돌밥을, 매운맛에는 계란찜을.\n누구와 와도 푸짐하고 만족스럽게 즐길 수 있도록 닥코의 메뉴를 함께 구성해보세요.', price: null },
   ],
   records: [{ broadcaster: 'SBS', program: '생활의 달인', episode: '1024회', title: '야구장 맛집 소개', date: '2026-03-30' }],
 };

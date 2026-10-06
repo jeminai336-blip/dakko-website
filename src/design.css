@@ -609,3 +609,5 @@ body {
 .broadcast-photo { margin-top: 32px; padding: 5px; border: 1px solid #ac865b; border-radius: 6px; overflow: hidden; }
 .broadcast-photo .photo-image { height: auto; object-fit: contain; }
 .broadcast-photo .photo-placeholder { min-height: 240px; aspect-ratio: 2 / 1; }
+
+.menu-card p { white-space: pre-line; }
