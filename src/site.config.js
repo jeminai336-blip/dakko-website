@@ -34,7 +34,7 @@ export const site = {
     { photo: 'hero1', label: '30년', caption: '1996년부터 지금까지, 닥코는 숯불에 직접 굽습니다.', objectPosition: '50% 100%', mobileObjectPosition: '50% 100%', objectFit: 'cover' },
     { photo: 'hero2', label: '', caption: 'SBS 생활의 달인 - 야구장맛집 편 소개', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero3', label: '30년의 시간', caption: '야구선수들이 즐겨 찾았던 오돌밥과 함께 쌓인 닥코의 기록', objectPosition: '45% 50%', mobileObjectPosition: '40% 50%', objectFit: 'contain' },
-    { photo: 'hero4', label: '숯불', caption: '한 입에 만나는 숯불 통닭발', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
+    { photo: 'hero4', label: '숯불', caption: '직화로 구워 숯불향가득! 인위적인 매운맛NO! 스트레스 풀리는 맛있게 매운맛!!', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
     { photo: 'hero5', label: '한 상', caption: '닭발과 오돌뼈, 함께 곁들이는 김', objectPosition: '55% 50%', mobileObjectPosition: '55% 50%', objectFit: 'contain' },
     { photo: 'hero6', label: '사진 6', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero7', label: '사진 7', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
