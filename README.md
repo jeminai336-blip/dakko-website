@@ -48,7 +48,8 @@ Search Console에는 배포 후 실제 사이트 주소를 등록하고 `sitemap
 
 - `src/site.config.js`: 공식 정보와 메뉴/사진 데이터
 - `scripts/build.mjs`: HTML·SEO 정적 생성기
-- `src/style.css`: 모바일 우선 반응형 스타일
+- `src/style.css`: 기존 모바일 우선 반응형 스타일
+- `src/design.css`: V3 디자인 개선 — 색상, 사진 비율, 편집형 메뉴, 숯불·방문 영역
 - `src/client.js`: 모바일 메뉴, HERO 슬라이더와 스크롤 후 하단 CTA
 - `public/`: 그대로 배포할 정적 파일
 - `tests/site.test.mjs`: 정적 콘텐츠와 설정 안전성 검증

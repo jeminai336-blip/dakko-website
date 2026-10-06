@@ -1,0 +1,222 @@
+/* V3 시각 개선: 콘텐츠와 동작은 유지하고 사진·읽기 순서를 강조합니다. */
+:root {
+  --cream: #f4ebdd;
+  --ink: #28221e;
+  --red: #8f2d27;
+  --brown: #49372d;
+  --muted: #625346;
+  --line: #d7c6b0;
+  --beige: #e4d2b8;
+}
+body { background: var(--cream); }
+.wrap { width: min(100% - 40px, 1240px); }
+.eyebrow { font-size: 11px; letter-spacing: 1.3px; }
+h2 { font-size: 33px; line-height: 1.4; letter-spacing: -1.4px; }
+.header { border-bottom-color: var(--line); }
+.header-inner { height: 74px; }
+.logo-seal { border-radius: 1px; }
+.logo-type small { font-size: 9px; letter-spacing: .7px; }
+.nav.open { top: 74px; gap: 9px; }
+.nav.open a { padding: 12px 0; }
+.nav a:hover { color: var(--red); }
+.hero { padding-block: 34px 36px; gap: 28px; }
+.hero h1 { font-size: clamp(32px, 8.7vw, 47px); line-height: 1.3; margin: 20px 0 24px; letter-spacing: -1.7px; font-weight: 800; }
+.hero-brand { margin-top: 3px; }
+.hero-evidence { font-size: 14px; color: var(--brown); line-height: 1.95; }
+.hero-evidence li::before { top: 12px; }
+.brand-statement { border-left: 2px solid #aa7b60; padding: 2px 0 2px 14px; margin-top: 23px; }
+.brand-statement p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.brand-statement strong { color: var(--brown); font-weight: 650; }
+.hero-actions { margin-top: 25px; }
+.hero-note { font-size: 12px; margin-top: 16px; }
+.button { min-height: 52px; border-radius: 1px; font-size: 14px; padding: 15px 18px; }
+.button.outline { border-color: #b18f79; }
+.pending { opacity: 1; font-size: 11px; }
+.hero-slider .hero-photo { height: auto; aspect-ratio: 1 / 1; border-radius: 1px; }
+.hero-slider .since-badge { background: #49372df0; border-color: #d8b994; transform: rotate(-5deg); }
+.slide-caption { background: var(--brown); min-height: 92px; padding: 18px 20px; color: var(--cream); }
+.slide-caption p { font-size: 14px; }
+.slide-topic { color: #e4c9a7; font-size: 11px; }
+.slider-controls { padding-top: 13px; }
+.slider-arrow, .slider-play { border-color: #bea78d; border-radius: 1px; }
+.slider-arrow:hover, .slider-play:hover { background: var(--beige); }
+.slider-dot { min-width: 24px; }
+.slider-dot span { background: #897360; }
+.slide-count { font-size: 11px; }
+.photo-placeholder { color: #66523e; background: #e4d5c0; }
+.photo-placeholder small { font-size: 11px; opacity: 1; }
+.photo-mark { opacity: 1; }
+.hero-slide .photo-placeholder,
+.hero-slide:nth-child(2) .photo-placeholder,
+.hero-slide:nth-child(3) .photo-placeholder,
+.hero-slide:nth-child(4) .photo-placeholder,
+.hero-slide:nth-child(5) .photo-placeholder { color: #ecd9bd; background: #49372d; }
+.hero-slider .photo-placeholder { padding-top: 75px; }
+.heritage-strip { border-block-color: var(--line); }
+.heritage-strip .wrap { font-size: 11px; gap: 10px; color: var(--muted); padding-block: 20px; }
+.section { padding-block: 66px; }
+.section-head { margin-bottom: 32px; }
+.section-intro { font-size: 15px; color: var(--brown); }
+.section-intro .muted { font-size: 13px; }
+/* 시간: 큰 기록 사진과 두 시점을 연결하는 하나의 선. */
+.story-section { background: #eadcc8; padding-block: 66px; }
+.story-layout { gap: 36px; }
+.history-photo { height: auto; aspect-ratio: 1.08; border-radius: 0; padding: 9px; background: #f4ebdd; border: 1px solid #cbb69a; }
+.history-photo .photo-placeholder { background: #dbc8ab; color: #604a35; }
+.story-copy h2 { font-size: 33px; }
+.story-copy > p:not(.eyebrow) { font-size: 14px; line-height: 2; color: var(--brown); }
+.timeline { gap: 22px; margin-top: 30px; border-top-color: #bca082; padding-top: 26px; position: relative; }
+.timeline::before, .timeline::after { content: ''; position: absolute; top: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+.timeline::before { left: 0; }
+.timeline::after { right: 0; }
+.timeline > div { flex: 1; }
+.timeline > div:last-child { text-align: right; }
+.timeline strong { font-size: 38px; }
+.timeline span { font-size: 11px; color: var(--muted); }
+/* 발견: 오돌밥 사진에 가장 넓은 공간을, 설명은 세 단계로. */
+.food-photo { height: auto; aspect-ratio: 1; border-radius: 1px; }
+.odol-layout { gap: 28px; }
+.steps article { padding-block: 22px; gap: 22px; }
+.step-no { font-size: 30px; }
+.steps h3 { font-size: 18px; }
+.steps p { font-size: 14px; line-height: 1.9; }
+.wrap-photo { height: auto; aspect-ratio: 1.65; margin-top: 27px; border-radius: 1px; }
+/* 메뉴: 카드 배경 대신 메뉴 분류와 얇은 구분선으로 읽습니다. */
+.menu-section { padding-block: 66px; background: #eee1cd; }
+.menu-grid { grid-template-columns: 1fr; gap: 0; }
+.menu-card { background: transparent; border-radius: 0; border-top: 1px solid #bca58b; padding: 25px 0 30px; min-height: 0; }
+.menu-card-top { font-size: 12px; align-items: center; }
+.menu-card-top span:last-child { font-size: 25px; color: #7b5d44; }
+.menu-card h3 { font-size: 23px; margin: 17px 0 12px; }
+.menu-card p { font-size: 14px; color: var(--brown); max-width: 440px; }
+.menu-bottom { margin-top: 26px; gap: 16px; }
+.menu-bottom p { font-size: 13px; }
+.text-button { font-size: 13px; min-height: 44px; align-items: center; }
+/* 숯불: 사진에 필터를 씌우지 않고 주변의 밝기만 낮춥니다. */
+.charcoal-feature { background: var(--ink); color: var(--cream); border: 0; margin: 22px -20px 0; padding: 34px 20px; }
+.charcoal-feature .eyebrow { color: #e4b98d; }
+.charcoal-title { font-size: 27px; line-height: 1.5; }
+.charcoal-feature .section-intro { color: #e2d0b8; font-size: 14px; }
+.charcoal-photo { height: auto; aspect-ratio: 1.05; border-radius: 0; }
+.charcoal-photo .photo-placeholder { color: #ead1af; background: #49372d; }
+.chicken-types { margin-top: 27px; gap: 20px; }
+.chicken-types article + article { border-left-color: #75604c; padding-left: 20px; }
+.chicken-types .eyebrow { color: #e4b98d; font-size: 10px; }
+.chicken-types h4 { font-size: 18px; }
+.chicken-types p { color: #dfcdb7; font-size: 13px; }
+/* 기록과 사람: 과장된 배너 대신 사진과 날짜 자체를 읽게 합니다. */
+.baseball-section { background: var(--cream); padding-block: 66px; border-bottom: 0; }
+.baseball-layout p:not(.eyebrow) { font-size: 14px; }
+.baseball-photo { height: auto; aspect-ratio: 1.12; border-radius: 1px; }
+.baseball-photo .photo-placeholder { background: #e0d0b8; color: #604b36; }
+.record-list { border-top: 1px solid #ad9277; }
+.record { padding-block: 27px; }
+.record h3 { font-size: 18px; }
+.record p { font-size: 14px; }
+.record-tag span, .record time { font-size: 12px; }
+/* 방문: 밝은 정보 영역, 복잡한 프레임 없이 바로 확인하고 이동합니다. */
+.visit-section { background: #e4d2b8; color: var(--ink); padding-block: 64px; }
+.visit-section .eyebrow { color: var(--red); }
+.visit-name { font-size: 20px; }
+.visit-address { font-size: 15px; color: var(--brown); line-height: 1.9; }
+.visit-address span { color: var(--muted); font-size: 14px; }
+.visit-info > div { border-bottom-color: #b9a184; font-size: 14px; padding-block: 15px; }
+.visit-info dt { color: var(--muted); }
+.visit-card { background: transparent; border: 0; border-top: 1px solid #b9a184; border-radius: 0; padding: 30px 0 0; }
+.location-symbol { font-size: 35px; color: var(--red); margin-bottom: 17px; }
+.visit-card h3 { font-size: 26px; }
+.visit-card > p:not(.eyebrow) { color: var(--brown); font-size: 14px; }
+.visit-card .button { min-height: 54px; }
+.button.cream { background: var(--red); border-color: var(--red); color: var(--cream); }
+.button.cream:not(:disabled):hover { background: #74221f; }
+.button.white-outline { border-color: #8d6b52; background: transparent; color: var(--brown); }
+.button.white-outline:not(:disabled):hover { background: #d6bd9c; }
+.visit-card .link-note { font-size: 12px !important; color: var(--muted); }
+.footer { background: var(--cream); padding-block: 42px 100px; }
+.footer-top p { font-size: 13px; }
+.social { font-size: 12px; }
+.social .pending { font-size: 10px; }
+.footer-bottom { font-size: 11px; align-items: center; }
+.footer-bottom a { padding-block: 12px; }
+.mobile-cta { background: #f4ebddf7; }
+a:focus-visible, button:focus-visible, .hero-slider:focus-visible { outline-color: var(--red); }
+.charcoal-feature a:focus-visible, .charcoal-feature button:focus-visible { outline-color: #e4b98d; }
+@media (min-width: 600px) {
+  .wrap { width: min(100% - 64px, 1240px); }
+  .hero { padding-top: 46px; }
+  .hero h1 { font-size: 49px; }
+  .hero-slider .hero-photo { aspect-ratio: 1.32; }
+  .food-photo { aspect-ratio: 1.2; }
+  .menu-grid { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  .menu-card { padding-block: 28px 35px; }
+  .charcoal-feature { margin-inline: 0; padding: 38px 30px; }
+  .charcoal-photo { aspect-ratio: 1.7; }
+  .history-photo, .baseball-photo { aspect-ratio: 1.4; }
+}
+@media (min-width: 1100px) {
+  .header-inner { height: 90px; }
+  .nav, .nav.open { top: auto; gap: 23px; }
+  .nav.open a, .nav a { padding: 12px 0; }
+  .hero { grid-template-columns: .95fr 1.05fr; gap: 44px; padding-block: 64px 60px; }
+  .hero h1 { font-size: clamp(41px, 3.65vw, 52px); letter-spacing: -2.4px; margin-block: 25px 29px; }
+  .hero h1 .red { display: block; }
+  .hero-brand { margin-top: 6px; }
+  .hero-evidence { font-size: 15px; }
+  .hero-evidence li::before { top: 13px; }
+  .brand-statement { margin-top: 28px; }
+  .brand-statement p { font-size: 13px; }
+  .hero-slider .hero-photo { aspect-ratio: 1.12; }
+  .hero-slider .since-badge { height: 103px; width: 103px; }
+  .hero-actions { flex-wrap: wrap; gap: 11px; }
+  .hero-actions .button { flex: auto; min-height: 52px; font-size: 13px; padding-inline: 15px; }
+  .hero-note { margin-top: 22px; }
+  .heritage-strip .wrap { gap: 42px; padding-block: 22px; font-size: 12px; }
+  .section { padding-block: 100px; }
+  h2, .story-copy h2, .baseball-layout h2 { font-size: 44px; }
+  .section-intro { font-size: 16px; max-width: 420px; min-width: 320px; }
+  .section-head { margin-bottom: 48px; }
+  .story-section { padding-block: 88px; }
+  .story-layout { grid-template-columns: 1.1fr 1fr; gap: 85px; }
+  .history-photo { aspect-ratio: 1.08; padding: 12px; }
+  .story-copy > p:not(.eyebrow) { font-size: 15px; }
+  .timeline { margin-top: 34px; padding-top: 30px; }
+  .timeline strong { font-size: 46px; }
+  .timeline span { font-size: 12px; }
+  .odol-layout { grid-template-columns: 1.25fr 1fr; gap: 65px; align-items: start; }
+  .food-photo { aspect-ratio: 1; }
+  .steps article { padding-block: 25px; }
+  .wrap-photo { aspect-ratio: 1.8; }
+  .menu-section { padding-block: 88px; }
+  .menu-grid { column-gap: 65px; }
+  .menu-card { padding-block: 29px 38px; }
+  .menu-card h3 { font-size: 26px; }
+  .menu-card p { font-size: 15px; }
+  .charcoal-feature { margin-top: 24px; padding: 48px; }
+  .charcoal-feature .section-head { gap: 30px; }
+  .charcoal-title { font-size: 34px; }
+  .charcoal-feature .section-intro { min-width: 270px; max-width: 310px; font-size: 15px; }
+  .charcoal-photo { aspect-ratio: 2.05; }
+  .chicken-types { gap: 45px; margin-top: 30px; }
+  .chicken-types article + article { padding-left: 45px; }
+  .chicken-types h4 { font-size: 22px; }
+  .chicken-types p { font-size: 14px; }
+  .baseball-section { padding-block: 90px; }
+  .baseball-layout { grid-template-columns: 1fr 1.15fr; gap: 75px; }
+  .baseball-photo { aspect-ratio: 1.32; }
+  .baseball-layout p:not(.eyebrow) { font-size: 15px; }
+  .record { padding-block: 34px; }
+  .record h3 { font-size: 23px; }
+  .record-tag { font-size: 30px; }
+  .visit-section { padding-block: 82px; }
+  .visit-layout { grid-template-columns: 1.1fr 1fr; gap: 85px; }
+  .visit-card { border-top: 0; border-left: 1px solid #b9a184; padding: 12px 0 12px 50px; }
+  .visit-card h3 { font-size: 30px; }
+  .footer { padding-block: 47px 24px; }
+}
+@media (max-width: 360px) {
+  .hero-evidence { font-size: 13px; }
+  .brand-statement p { font-size: 12px; }
+  .button { font-size: 13px; }
+  .chicken-types { grid-template-columns: 1fr; gap: 18px; }
+  .chicken-types article + article { border-left: 0; border-top: 1px solid #75604c; padding: 18px 0 0; }
+}

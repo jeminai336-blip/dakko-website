@@ -35,7 +35,7 @@ test('공식 배포 URL이 있어야 canonical을 생성하며 설정 문자를 
 test('GitHub Pages 저장소 하위 경로에서 CSS, JS, 이미지 주소를 유지한다',()=>{
  const config={...site,SITE_URL:'https://example.com/dakko-website',photos:{...site.photos,history:{src:'/images/hero.webp',alt:'실제 사진'}}};
  const html=render(config);
- for(const asset of ['style.css','client.js','favicon.svg','images/hero.webp']) assert.ok(html.includes(`/dakko-website/${asset}`));
+ for(const asset of ['style.css','design.css','client.js','favicon.svg','images/hero.webp']) assert.ok(html.includes(`/dakko-website/${asset}`));
  assert.ok(html.includes('rel="canonical" href="https://example.com/dakko-website/"'));
 });
 test('V3 섹션과 내비게이션이 고객 흐름 순서를 유지한다', () => {
