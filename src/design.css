@@ -504,3 +504,27 @@ main > section:not(.hero):not(.visit-section) h2, .charcoal-title {
   .charcoal-feature { padding-inline: 12px; }
   .charcoal-title { font-size: 24px; }
 }
+
+/* Local, non-tiled paper artwork: fibres, creases and edge oxidation. */
+:root { --paper-fiber: url('./textures/aged-paper.svg'); }
+body { background-image: none; }
+.hero, .menu-section > .wrap, .story-layout {
+  background-image: url('./textures/aged-paper.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hero, .menu-section > .wrap {
+  box-shadow: inset 0 0 20px #80532426, 0 4px 0 #c8b38b;
+}
+.story-layout {
+  background-image: linear-gradient(#f0e3c633, #f0e3c633), url('./textures/aged-paper.svg');
+}
+#odolbap, .baseball-section, #records {
+  background-image: linear-gradient(#f1e5cad9, #f1e5cad9), url('./textures/aged-paper.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.charcoal-feature { background-image: none; }
+.visit-section { background-image: none; }
+/* Keep small secondary copy legible over the darkest paper creases. */
+.hero .hero-note, .hero .brand-statement, .menu-card p { color: #49392b; }
