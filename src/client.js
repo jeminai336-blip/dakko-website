@@ -156,10 +156,8 @@ if (film) {
   const button = film.querySelector('.film-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let playing = !motion.matches;
-  let hovered = false;
   let touching = false;
   let visible = false;
-  let pauseUntil = 0;
   let lastTime = 0;
   let fractionalScroll = 0;
   let frame;
@@ -193,7 +191,7 @@ if (film) {
     const elapsed = lastTime ? Math.min(time - lastTime, 60) : 0;
     lastTime = time;
     const length = reel.offsetHeight;
-    if (!hovered && !touching && !viewport.contains(document.activeElement) && Date.now() >= pauseUntil && length > 0) {
+    if (!touching && length > 0) {
       fractionalScroll += elapsed * .012;
       const pixels = Math.floor(fractionalScroll);
       fractionalScroll -= pixels;
@@ -203,14 +201,10 @@ if (film) {
     frame = requestAnimationFrame(tick);
   }
   button.addEventListener('click', () => { playing = !playing; sync(); });
-  film.addEventListener('mouseenter', () => { hovered = true; });
-  film.addEventListener('mouseleave', () => { hovered = false; });
   viewport.addEventListener('pointerdown', () => { touching = true; });
-  const release = () => { touching = false; pauseUntil = Date.now() + 5000; };
+  const release = () => { touching = false; };
   window.addEventListener('pointerup', release);
   window.addEventListener('pointercancel', release);
-  viewport.addEventListener('wheel', () => { pauseUntil = Date.now() + 5000; }, { passive: true });
-  viewport.addEventListener('keydown', () => { pauseUntil = Date.now() + 5000; });
   motion.addEventListener('change', () => { playing = !motion.matches; viewport.scrollTop = 0; sync(); });
   document.addEventListener('visibilitychange', sync);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(film);
