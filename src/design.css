@@ -552,3 +552,7 @@ body {
 .hero-place-note { margin-top: 22px; padding: 3px 0 3px 15px; border-left: 3px solid #a88b62; color: var(--ink); }
 .hero-place-note strong { display: block; font-size: 14px; line-height: 1.6; }
 .hero-place-note p { margin-top: 5px; font-size: 13px; line-height: 1.8; }
+
+/* Fit eight indicators within the existing mobile control row. */
+.slider-indicators { min-width: 0; }
+.slider-dot { flex: 1; min-width: 0; max-width: 27px; }

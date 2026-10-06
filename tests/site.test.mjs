@@ -47,12 +47,12 @@ test('V3 섹션과 내비게이션이 고객 흐름 순서를 유지한다', () 
  assert.ok(html.indexOf('id="charcoal"')>positions[2] && html.indexOf('id="charcoal"')<positions[3]);
  assert.ok(!html.includes('occasions'));
 });
-test('HERO 핵심 메시지, 5개 사진 슬롯과 미확인 전화 비노출',()=>{
+test('HERO 핵심 메시지, 8개 사진 슬롯과 미확인 전화 비노출',()=>{
  const html=render();
  const hero=html.match(/<section class="hero wrap".*?<\/section>/s)[0];
  for(const copy of ['주문 후 숯불에 직접 구워내는 닭발','야구선수들이 찾아 먹던 오돌밥','SBS 「생활의 달인」 야구장 맛집 소개','닥코만의 전통과 스토리는 광고로 만들어지지 않았습니다.','손님들과 함께한 30년의 시간이 만들었습니다.']) assert.ok(hero.includes(copy));
- assert.equal((hero.match(/class="hero-slide"/g)||[]).length,5);
- assert.equal((hero.match(/class="slider-dot"/g)||[]).length,5);
+ assert.equal((hero.match(/class="hero-slide"/g)||[]).length,8);
+ assert.equal((hero.match(/class="slider-dot"/g)||[]).length,8);
  assert.equal((hero.match(/class="button(?: outline)?(?: unavailable)?"/g)||[]).length,2);
  assert.ok(!html.includes('<dt>전화</dt>'));
  const config={...site,photos:{...site.photos,hero1:{src:'/images/first.webp',alt:'1996년 기록 사진'},hero2:{src:'/images/second.webp',alt:'오돌밥 실물'}}};
@@ -75,9 +75,10 @@ test('확인된 야구 아카이브 항목을 추가하면 HTML에 안전하게 
  assert.ok(html.includes('&lt;내용&gt; &amp; 기록'));
  assert.ok(html.includes('class="archive-card"'));
 });
-test('실제 HERO 활성 src는 공백 없는 main1~main5 파일을 참조한다',()=>{
- assert.deepEqual(site.heroSlides.map(slide=>site.photos[slide.photo].src),[1,2,3,4,5].map(n=>`/images/hero/main${n}.png`));
+test('실제 HERO 활성 src는 공백 없는 main1~main8 파일을 참조한다',()=>{
+ assert.deepEqual(site.heroSlides.map(slide=>site.photos[slide.photo].src),[1,2,3,4,5,6,7,8].map(n=>`/images/hero/main${n}.png`));
  const html=render({...site,SITE_URL:'https://example.com/dakko-website/'});
- for(let n=1;n<=5;n++) assert.ok(html.includes(`src="/dakko-website/images/hero/main${n}.png"`));
- assert.ok(html.includes('class="photo-placeholder" hidden'));
+ for(let n=1;n<=8;n++) assert.ok(html.includes(`src="/dakko-website/images/hero/main${n}.png"`));
+ const hero = html.split('<section class="hero wrap"')[1].split('</section>')[0];
+ assert.ok(!hero.includes('photo-placeholder'));
 });

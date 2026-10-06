@@ -19,6 +19,9 @@ export const site = {
     hero3: { src: '/images/hero/main3.png', alt: '야구공과 선수 사진, 여러 장의 사인이 걸린 닥코 매장 벽' },
     hero4: { src: '/images/hero/main4.png', alt: '접시 위 닭발을 배경으로 젓가락으로 들어 올린 양념 통닭발' },
     hero5: { src: '/images/hero/main5.png', alt: '깨가 뿌려진 닭발과 양념 오돌뼈, 김이 함께 놓인 상' },
+    hero6: { src: '/images/hero/main6.png', alt: '닥코통닭발 HERO 사진 6', pendingUpload: true },
+    hero7: { src: '/images/hero/main7.png', alt: '닥코통닭발 HERO 사진 7', pendingUpload: true },
+    hero8: { src: '/images/hero/main8.png', alt: '닥코통닭발 HERO 사진 8', pendingUpload: true },
     odolbap: { src: '', localSrc: '/images/hero/02-odolbap.webp', alt: '양념한 오돌뼈와 밥을 비빈 닥코의 오돌밥' },
     wrap: { src: '', alt: '김 위에 오돌밥을 올려 싸 먹는 모습' },
     history: { src: '', localSrc: '/images/hero/01-history.webp', alt: '닥코통닭발의 오래된 간판과 매장 기록' },
@@ -33,6 +36,9 @@ export const site = {
     { photo: 'hero3', label: '야구', caption: '매장에 쌓인 야구 사진과 사인', objectPosition: '45% 50%', mobileObjectPosition: '40% 50%', objectFit: 'contain' },
     { photo: 'hero4', label: '숯불', caption: '한 입에 만나는 숯불 통닭발', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
     { photo: 'hero5', label: '한 상', caption: '닭발과 오돌뼈, 함께 곁들이는 김', objectPosition: '55% 50%', mobileObjectPosition: '55% 50%', objectFit: 'contain' },
+    { photo: 'hero6', label: '사진 6', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
+    { photo: 'hero7', label: '사진 7', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
+    { photo: 'hero8', label: '사진 8', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
   ],
   // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
   baseballArchive: [], // { photo: 'photos의 키', title: '확인된 제목', description: '확인된 내용', date: '확인된 날짜(선택)' }
