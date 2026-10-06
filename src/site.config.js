@@ -32,7 +32,7 @@ export const site = {
   // HERO 전용 사진: 본문 섹션의 photos 설정과 분리합니다.
   heroSlides: [
     { photo: 'hero1', label: '30년', caption: '1996년부터 지금까지, 닥코는 숯불에 직접 굽습니다.', objectPosition: '50% 100%', mobileObjectPosition: '50% 100%', objectFit: 'cover' },
-    { photo: 'hero2', label: '기록', caption: 'SBS 「생활의 달인」에 소개된 닥코', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
+    { photo: 'hero2', label: '', caption: 'SBS 생활의 달인 - 야구장맛집 편 소개', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero3', label: '야구', caption: '매장에 쌓인 야구 사진과 사인', objectPosition: '45% 50%', mobileObjectPosition: '40% 50%', objectFit: 'contain' },
     { photo: 'hero4', label: '숯불', caption: '한 입에 만나는 숯불 통닭발', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
     { photo: 'hero5', label: '한 상', caption: '닭발과 오돌뼈, 함께 곁들이는 김', objectPosition: '55% 50%', mobileObjectPosition: '55% 50%', objectFit: 'contain' },
