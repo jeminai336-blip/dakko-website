@@ -590,3 +590,7 @@ body {
 .odolbap-video-fallback { height: 100%; }
 .odolbap-video-fallback[hidden] { display: none; }
 .odolbap-video[hidden] { display: none; }
+
+/* Keep the uploaded serving guide readable without cropping any panel. */
+.wrap-photo:has(.photo-image) { height: auto; aspect-ratio: auto; }
+.wrap-photo .photo-image { height: auto; object-fit: contain; }

@@ -24,7 +24,7 @@ export const site = {
     hero7: { src: '/images/hero/main7.png', alt: '닥코통닭발 HERO 사진 7', pendingUpload: true },
     hero8: { src: '/images/hero/main8.png', alt: '닥코통닭발 HERO 사진 8', pendingUpload: true },
     odolbap: { src: '/images/odolbap/odolbap.jpg', localSrc: '/images/odolbap/odolbap.jpg', alt: '흰 그릇에 담긴 양념 오돌뼈와 밥, 함께 곁들이는 김과 반찬' },
-    wrap: { src: '', alt: '김 위에 오돌밥을 올려 싸 먹는 모습' },
+    wrap: { src: '/images/odolbap/odolbap-wrap.png', alt: '김 위에 오돌밥과 무뼈닭발을 올려 한입에 먹는 네 단계 안내' },
     history: { src: '', localSrc: '/images/hero/01-history.webp', alt: '닥코통닭발의 오래된 간판과 매장 기록' },
     charcoal: { src: '', localSrc: '/images/hero/03-charcoal.webp', alt: '숯불에 구워내는 닥코통닭발' },
     baseball: { src: '', localSrc: '/images/hero/04-baseball.webp', alt: '매장에 남아 있는 야구선수 사진과 사인' },
