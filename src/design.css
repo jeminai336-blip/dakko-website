@@ -235,3 +235,118 @@ a:focus-visible, button:focus-visible, .hero-slider:focus-visible { outline-colo
   .nav, .nav.open { gap: 17px; }
 }
 @media (max-width: 360px) { .logo-wordmark img { width: 164px; } }
+
+/* 종이 메뉴판의 인쇄 감성. HERO 글자와 상단 간판 로고에는 적용하지 않습니다. */
+@font-face {
+  font-family: 'Dakko Section Print';
+  src: url('./fonts/dakko-section-print.woff') format('woff');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --cream: #f1e5ca;
+  --ink: #25221b;
+  --red: #872b24;
+  --brown: #49392b;
+  --muted: #62513e;
+  --line: #cdb994;
+  --paper-fiber: repeating-linear-gradient(8deg, transparent 0 4px, #76552205 4px 5px, transparent 5px 9px);
+}
+body {
+  background-image: var(--paper-fiber);
+}
+main > section h2, .charcoal-title {
+  font-family: 'Dakko Section Print', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  font-weight: 900;
+  letter-spacing: -.8px;
+  text-shadow: .25px 0 currentColor, -.25px 0 currentColor;
+}
+main > section h2 .serif { font-family: inherit; }
+.hero h1 { text-shadow: none; }
+.hero .hero-era, .hero .hero-brand { font-family: inherit; }
+.hero-slider .hero-photo {
+  outline: 1px solid #9d8060;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 4px #e5d4b4;
+}
+.slide-caption {
+  border-top: 1px solid #806248;
+  padding-top: 20px;
+}
+.hero-slider .since-badge {
+  background: #f1e5caf5;
+  color: #872b24;
+  border: 3px double #872b24;
+  box-shadow: none;
+  transform: rotate(-7deg);
+}
+.hero-slider .since-badge strong { font-weight: 700; }
+.hero-slider .since-badge small, .hero-slider .since-badge span { color: #6f2c22; }
+.story-section {
+  background-color: #e8d7b6;
+  background-image: var(--paper-fiber), radial-gradient(ellipse at top left, #8c62200b, transparent 65%);
+  border-block: 1px solid #c2a77f;
+}
+.story-copy > .eyebrow {
+  display: inline-block;
+  color: #792d25;
+  border: 3px double #aa7b59;
+  padding: 5px 10px;
+  background: #f1e5ca80;
+  letter-spacing: 1px;
+}
+.history-photo {
+  background: #f4e8d0;
+  border-color: #aa8b63;
+  outline: 1px solid #d0b992;
+  outline-offset: 4px;
+  padding: 10px;
+}
+.timeline { border-top: 2px solid #aa8a62; }
+.timeline strong { font-weight: 700; }
+.timeline span { color: #604a32; }
+.food-photo, .wrap-photo, .baseball-photo, .archive-photo {
+  outline: 1px solid #ae9069;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 4px #e9dabc;
+}
+.menu-section {
+  background-color: #ead9b7;
+  background-image: var(--paper-fiber), repeating-linear-gradient(92deg, transparent 0 41px, #65482104 42px 43px);
+  border-block: 1px solid #c4a67b;
+}
+.menu-section > .wrap > .section-head {
+  padding-bottom: 24px;
+  border-bottom: 3px double #ab8c61;
+}
+.menu-card { border-top-color: #ab8c61; }
+.menu-card-top { color: #792d25; font-weight: 700; }
+.menu-card-top span:last-child { color: #795734; }
+.menu-card h3 { font-weight: 800; }
+.charcoal-feature {
+  border: 1px solid #64533f;
+  outline: 1px solid #ac8c60;
+  outline-offset: 5px;
+}
+.charcoal-feature .eyebrow { color: #f0cfa4; }
+.charcoal-photo {
+  outline: 1px solid #967955;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 4px #4a3b2b;
+}
+.baseball-section { background-color: #efe2c8; }
+.record-list { border-top: 3px double #a6865b; }
+.record { border-bottom-color: #c9b28b; }
+.record-tag { font-weight: 700; }
+/* 방문 안내는 질감 없이 읽기 쉬운 정보 영역으로 유지합니다. */
+.visit-section { background: #e4d2b8; }
+.visit-info > div { border-bottom-color: #b29875; }
+.visit-info dt, .visit-address span, .visit-card .link-note { color: #5b4938; }
+.footer { background-color: #efe2c8; }
+.mobile-cta { background: #f1e5caf7; }
+img { filter: none; }
+@media (max-width: 599px) {
+  .hero-slider .since-badge { width: 80px; height: 80px; }
+  .hero-slider .since-badge strong { font-size: 24px; }
+}
