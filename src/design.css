@@ -509,8 +509,10 @@ main > section:not(.hero):not(.visit-section) h2, .charcoal-title {
 :root { --paper-fiber: none; }
 body {
   background-color: #f0e4c6;
-  background-image: url('./textures/natural-paper-desktop.webp');
-  background-size: 100% 100%;
+  background-image: linear-gradient(#f1e5cae6, #f1e5cae6), url('./images/dakko-background.png.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 .header, .hero, .story-section, .story-layout, .menu-section,
@@ -524,5 +526,5 @@ body {
 .visit-section { background: #fff9e540; }
 .hero .hero-note, .hero .brand-statement, .menu-card p { color: #49392b; }
 @media (max-width: 599px) {
-  body { background-image: url('./textures/natural-paper-mobile.webp'); }
+  body { background-image: linear-gradient(#f1e5caed, #f1e5caed), url('./images/dakko-background.png.png'); }
 }
