@@ -1,9 +1,13 @@
 import { mkdir, writeFile, copyFile, cp, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { site } from '../src/site.config.js';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
+// CSS 내용이 바뀌면 URL도 바꿔 브라우저가 이전 스타일을 재사용하지 않게 합니다.
+const cssVersion = file => createHash('sha256').update(readFileSync(path.join(root, 'src', file))).digest('hex').slice(0, 12);
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function safeUrl(value) {
   if (!value) return null;
@@ -39,7 +43,7 @@ export function render(config = site) {
   ...(safeUrl(config.INSTAGRAM_URL)||safeUrl(config.YOUTUBE_URL)?{sameAs:[config.INSTAGRAM_URL,config.YOUTUBE_URL].map(safeUrl).filter(Boolean)}:{}),
  };
  return `<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(config.title)}</title><meta name="description" content="${e(config.description)}"><meta name="theme-color" content="#f5f0e7"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="${e(config.name)}"><meta property="og:title" content="${e(config.title)}"><meta property="og:description" content="${e(config.description)}">${canonical?`<link rel="canonical" href="${e(canonical)}"><meta property="og:url" content="${e(canonical)}">`:''}${ogImage?`<meta property="og:image" content="${e(ogImage)}">`:''}<link rel="icon" href="${e(asset('/favicon.svg'))}" type="image/svg+xml"><link rel="stylesheet" href="${e(asset('/style.css'))}"><link rel="stylesheet" href="${e(asset('/design.css'))}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,'\\u003c')}</script><script src="${e(asset('/client.js'))}" defer></script></head>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(config.title)}</title><meta name="description" content="${e(config.description)}"><meta name="theme-color" content="#f5f0e7"><meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="${e(config.name)}"><meta property="og:title" content="${e(config.title)}"><meta property="og:description" content="${e(config.description)}">${canonical?`<link rel="canonical" href="${e(canonical)}"><meta property="og:url" content="${e(canonical)}">`:''}${ogImage?`<meta property="og:image" content="${e(ogImage)}">`:''}<link rel="icon" href="${e(asset('/favicon.svg'))}" type="image/svg+xml"><link rel="stylesheet" href="${e(`${asset('/style.css')}?v=${cssVersion('style.css')}`)}"><link rel="stylesheet" href="${e(`${asset('/design.css')}?v=${cssVersion('design.css')}`)}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,'\\u003c')}</script><script src="${e(asset('/client.js'))}" defer></script></head>
 <body><a class="skip" href="#main">본문으로 바로가기</a>
 <header class="header"><div class="wrap header-inner"><a href="#" class="logo" aria-label="닥코통닭발 홈"><span class="logo-wordmark"><img src="${e(asset('/brand/dakko-wordmark.svg'))}" width="224" height="50" alt="${e(config.name)}"><small>동암역 · SINCE 1996</small></span></a><button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button><nav id="navigation" class="nav" aria-label="주 메뉴"><a href="#story">닥코 이야기</a><a href="#odolbap">오돌밥</a><a href="#menu">메뉴</a><a href="#baseball">야구 이야기</a><a href="#records">기록</a><a href="#visit">방문안내</a></nav><a class="header-visit" href="#visit">닥코 찾아가기 <span aria-hidden="true">↗</span></a></div></header>
 <main id="main">
