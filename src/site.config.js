@@ -36,7 +36,7 @@ export const site = {
     { photo: 'hero3', label: '30년의 시간', caption: '야구선수들이 즐겨 찾았던 오돌밥과 함께 쌓인 닥코의 기록', objectPosition: '45% 50%', mobileObjectPosition: '40% 50%', objectFit: 'contain' },
     { photo: 'hero4', label: '숯불', caption: '직화로 구워 숯불향가득! 인위적인 매운맛NO! 스트레스 풀리는 맛있게 매운맛!!', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
     { photo: 'hero5', label: '한 상', caption: '뼈 바를 필요 없이 한입에 쏙! 쫄깃한 식감과 입안 가득 숯불향. 스트레스 풀리는 매운맛!', objectPosition: '55% 50%', mobileObjectPosition: '55% 50%', objectFit: 'contain' },
-    { photo: 'hero6', label: '사진 6', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
+    { photo: 'hero6', label: '둘이 오면, 닥코는 이 조합', caption: '불맛 살린 무뼈닭발과 야구선수들이 즐겨 찾았던 오돌밥', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero7', label: '사진 7', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero8', label: '사진 8', caption: '', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
   ],
