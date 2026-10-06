@@ -93,3 +93,11 @@ test('역사 필름은 설정 순서와 확인된 캡션을 유지한다', () =>
  assert.equal((html.match(/<figcaption>/g)||[]).length,1);
  assert.ok(html.includes('30년 동안<br>누군가의 청춘과<br>함께했습니다.'));
 });
+
+test('역사 사진은 레이아웃에 남아 지연 로딩이 시작될 수 있다', () => {
+ const html=render();
+ const images=html.match(/<img class="history-image"[^>]*>/g)||[];
+ assert.equal(images.length,site.history.length);
+ assert.ok(images.every(tag=>!tag.includes(' hidden')));
+ assert.ok(images.every(tag=>tag.includes('loading="lazy"')));
+});

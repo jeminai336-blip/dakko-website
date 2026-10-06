@@ -34,7 +34,7 @@ export function render(config = site) {
  const historyFrames = (config.history || []).map((item, i) => {
    const src = /^\/images\/history\/[^?#]+$/.test(item.src || '') ? asset(item.src) : '';
    const alt = item.alt || item.caption || `닥코의 역사 사진 ${i + 1}`;
-   return `<figure class="film-frame"><div class="film-photo">${src ? `<img class="history-image" src="${e(src)}" alt="${e(alt)}" loading="lazy" decoding="async" hidden>` : ''}<div class="film-placeholder" role="img" aria-label="${e(alt)} — 실제 사진 준비 중"><span aria-hidden="true">▧</span><small>실제 사진 준비 중</small></div></div>${item.year || item.caption ? `<figcaption>${item.year ? `<span>${e(item.year)}</span>` : ''}${item.caption ? `<span>${e(item.caption)}</span>` : ''}</figcaption>` : ''}</figure>`;
+   return `<figure class="film-frame"><div class="film-photo">${src ? `<img class="history-image" src="${e(src)}" alt="${e(alt)}" loading="lazy" decoding="async">` : ''}<div class="film-placeholder" role="img" aria-label="${e(alt)} — 실제 사진 준비 중"><span aria-hidden="true">▧</span><small>실제 사진 준비 중</small></div></div>${item.year || item.caption ? `<figcaption>${item.year ? `<span>${e(item.year)}</span>` : ''}${item.caption ? `<span>${e(item.caption)}</span>` : ''}</figcaption>` : ''}</figure>`;
  }).join('');
  const historyFilm = `<div class="history-photo history-film"><div class="film-window" tabindex="0" role="region" aria-label="닥코 역사 사진 필름, 위아래로 스크롤하여 보기"><div class="film-track"><div class="film-reel">${historyFrames || '<div class="film-placeholder"><small>실제 사진 준비 중</small></div>'}</div></div></div><button class="film-play" type="button" hidden aria-label="역사 필름 자동 흐름 일시정지">Ⅱ</button></div>`;
  const firstPhoto = config.photos[config.heroSlides[0].photo];

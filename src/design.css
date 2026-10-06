@@ -578,3 +578,9 @@ body {
 @media (min-width: 1100px) { .film-window { height: 440px; } }
 
 .history-image[hidden], .film-placeholder[hidden] { display: none; }
+
+/* Lazy images keep their layout box so the browser starts their requests. */
+.film-photo { position: relative; }
+.history-image { opacity: 0; }
+.history-image.is-loaded { opacity: 1; }
+.film-photo .film-placeholder { position: absolute; inset: 0; min-height: 0; }

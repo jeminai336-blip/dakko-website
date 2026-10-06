@@ -42,10 +42,27 @@ export const site = {
   ],
   // 오래된 사진부터 정렬하세요. 정확한 연도/설명이 없으면 빈 값으로 유지합니다.
   history: [
-    { src: '/images/history/history1.jpg', year: '', caption: '', alt: '' },
-    { src: '/images/history/history2.jpg', year: '', caption: '', alt: '' },
-  ],
-  // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
+    { src: '/images/history/history01.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history02.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history03.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history04.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history05.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history06.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history07.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history08.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history09.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history10.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history11.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history12.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history13.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history14.png', year: '', caption: '', alt: '' },
+    { src: '/images/history/history15.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history16.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history17.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history18.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history19.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history20.jpg', year: '', caption: '', alt: '' },
+  ],  // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
   baseballArchive: [], // { photo: 'photos의 키', title: '확인된 제목', description: '확인된 내용', date: '확인된 날짜(선택)' }
   menus: [
     { category: '처음 오셨다면', name: '오돌밥 + 닭발', description: '양념한 오돌뼈와 밥을 비벼 김에 싸 먹는 닥코의 대표 메뉴.', price: null },
