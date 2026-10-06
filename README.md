@@ -51,3 +51,7 @@ Search Console에는 배포 후 실제 사이트 주소를 등록하고 `sitemap
 - `tests/site.test.mjs`: 정적 콘텐츠와 설정 안전성 검증
 
 홈페이지의 `#odolbap`, `#story`, `#menu`, `#records`는 독립 섹션입니다. 실제 콘텐츠가 축적되면 같은 데이터/생성기를 바탕으로 `/odolbap`, `/story`, `/menu`, `/media`를 추가할 수 있습니다. 현재 존재하지 않는 페이지 링크는 노출하지 않습니다.
+
+## GitHub Pages
+
+[GitHub Pages 클릭 순서 안내](GITHUB_PAGES.md)를 참고하세요. `main`에 push하면 `.github/workflows/deploy-pages.yml`이 테스트·정적 빌드·배포합니다. 저장소 **Settings → Pages → Source**는 **GitHub Actions**로 선택해야 합니다. 배포 시 공식 주소와 저장소 하위 경로를 자동 적용합니다.
