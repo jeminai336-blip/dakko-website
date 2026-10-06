@@ -27,7 +27,7 @@ export const site = {
     wrap: { src: '/images/odolbap/odolbap-wrap.png', alt: '김 위에 오돌밥과 무뼈닭발을 올려 한입에 먹는 네 단계 안내' },
     history: { src: '', localSrc: '/images/hero/01-history.webp', alt: '닥코통닭발의 오래된 간판과 매장 기록' },
     charcoal: { src: '', localSrc: '/images/hero/03-charcoal.webp', alt: '숯불에 구워내는 닥코통닭발' },
-    baseball: { src: '', localSrc: '/images/hero/04-baseball.webp', alt: '매장에 남아 있는 야구선수 사진과 사인' },
+    baseball: { src: '/images/odolbap/odolbap-story.png', localSrc: '/images/odolbap/odolbap-story.png', alt: '야구선수들과 닥코 오돌밥의 이야기를 담은 네 컷 만화' },
     media: { src: '', localSrc: '/images/hero/05-media.webp', alt: '사용권이 확인된 닥코통닭발의 방송 소개 관련 기록' },
   },
   // HERO 전용 사진: 본문 섹션의 photos 설정과 분리합니다.

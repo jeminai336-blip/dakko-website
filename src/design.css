@@ -594,3 +594,7 @@ body {
 /* Keep the uploaded serving guide readable without cropping any panel. */
 .wrap-photo:has(.photo-image) { height: auto; aspect-ratio: auto; }
 .wrap-photo .photo-image { height: auto; object-fit: contain; }
+
+/* Preserve all four panels of the uploaded odolbap story illustration. */
+.baseball-photo:has(.photo-image) { height: auto; aspect-ratio: auto; }
+.baseball-photo .photo-image { height: auto; object-fit: contain; }
