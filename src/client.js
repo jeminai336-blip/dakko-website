@@ -44,6 +44,8 @@ if (carousel) {
   let visible = false;
   let hovered = false;
   let timer;
+  let fadeLayer;
+  let fadeAnimation;
   const delay = 5500;
 
   function syncTimer() {
@@ -58,7 +60,27 @@ if (carousel) {
     syncTimer();
   }
   function show(next, manual = false) {
+    const previous = index;
     index = (next + slides.length) % slides.length;
+    fadeAnimation?.cancel();
+    fadeLayer?.remove();
+    fadeLayer = null;
+    if (previous !== index && !reducedMotion.matches) {
+      const layer = slides[previous].cloneNode(true);
+      layer.className = 'hero-fade-out';
+      layer.hidden = false;
+      layer.inert = true;
+      layer.removeAttribute('role');
+      layer.removeAttribute('aria-label');
+      layer.setAttribute('aria-hidden', 'true');
+      carousel.querySelector('.hero-slides').append(layer);
+      fadeLayer = layer;
+      const animation = layer.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 850, easing: 'ease-in-out', fill: 'forwards'
+      });
+      fadeAnimation = animation;
+      animation.onfinish = () => { layer.remove(); if (fadeLayer === layer) fadeLayer = null; };
+    }
     slides.forEach((slide, i) => { slide.hidden = i !== index; });
     dots.forEach((dot, i) => {
       if (i === index) dot.setAttribute('aria-current', 'true');

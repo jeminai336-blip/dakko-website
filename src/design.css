@@ -556,3 +556,7 @@ body {
 /* Fit eight indicators within the existing mobile control row. */
 .slider-indicators { min-width: 0; }
 .slider-dot { flex: 1; min-width: 0; max-width: 27px; }
+
+/* Crossfade the outgoing image over the next slide without layout movement. */
+.hero-slides { position: relative; }
+.hero-fade-out { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
