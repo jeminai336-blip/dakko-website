@@ -220,3 +220,8 @@ a:focus-visible, button:focus-visible, .hero-slider:focus-visible { outline-colo
   .chicken-types { grid-template-columns: 1fr; gap: 18px; }
   .chicken-types article + article { border-left: 0; border-top: 1px solid #75604c; padding: 18px 0 0; }
 }
+/* HERO 사진별 구도만 적용합니다. 본문 사진과 기존 프레임은 유지합니다. */
+.hero-slider .hero-photo img { object-position: var(--hero-mobile-position, 50% 50%); }
+@media (min-width: 1100px) {
+  .hero-slider .hero-photo img { object-position: var(--hero-position, 50% 50%); }
+}

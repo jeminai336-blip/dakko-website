@@ -62,7 +62,7 @@ Search Console에는 배포 후 실제 사이트 주소를 등록하고 `sitemap
 
 ## V3 HERO 슬라이더
 
-사진이 없으면 실제 사진 준비 중 자리표시자를 유지합니다. `photos.history`, `photos.odolbap`, `photos.charcoal`, `photos.baseball`, `photos.media`에 사용 가능한 실제 사진을 설정하면 섹션과 슬라이더에 같이 반영됩니다. `photos.media`에 방송 자료를 넣기 전에 사용권을 확인하세요.
+HERO에는 `public/images/hero/main 1.png`~`main 5.png`를 파일명 순서로 연결했습니다. `photos.hero1`~`hero5`는 HERO 전용이며 본문 사진과 분리되어 있습니다. 사진별 alt와 슬라이드의 caption·PC/모바일 object-position은 `src/site.config.js`에서 관리합니다. 자세한 파일 매핑은 `public/images/hero/README.md`를 참고하세요. 본문에 실제 사진이 없는 영역은 placeholder를 유지합니다.
 
 화면에 보이는 동안 5.5초마다 전환합니다. 이전/다음 버튼, 사진 선택, 좌우 방향키, Home/End 및 모바일 가로 스와이프를 지원합니다. 직접 조작하면 자동 전환을 멈추며 재생 버튼으로 다시 시작합니다. 마우스가 위에 있거나 키보드 포커스가 들어오면 잠시 멈추고, 화면 밖·숨겨진 탭에서도 전환하지 않습니다. 기기의 ‘움직임 줄이기’ 설정에서는 자동 재생과 전환 효과를 기본적으로 끕니다. 자바스크립트가 꺼져 있어도 첫 사진과 모든 공식 본문은 HTML로 읽을 수 있습니다.
 

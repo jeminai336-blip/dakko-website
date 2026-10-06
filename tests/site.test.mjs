@@ -55,7 +55,7 @@ test('HERO 핵심 메시지, 5개 사진 슬롯과 미확인 전화 비노출',(
  assert.equal((hero.match(/class="slider-dot"/g)||[]).length,5);
  assert.equal((hero.match(/class="button(?: outline)?(?: unavailable)?"/g)||[]).length,2);
  assert.ok(!html.includes('<dt>전화</dt>'));
- const config={...site,photos:{...site.photos,history:{src:'/images/first.webp',alt:'1996년 기록 사진'},odolbap:{src:'/images/second.webp',alt:'오돌밥 실물'}}};
+ const config={...site,photos:{...site.photos,hero1:{src:'/images/first.webp',alt:'1996년 기록 사진'},hero2:{src:'/images/second.webp',alt:'오돌밥 실물'}}};
  const withPhotos=render(config);
  assert.match(withPhotos,/<img[^>]*first.webp[^>]*fetchpriority="high"/);
  assert.match(withPhotos,/<img[^>]*second.webp[^>]*loading="lazy"/);
