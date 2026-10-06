@@ -75,3 +75,9 @@ test('확인된 야구 아카이브 항목을 추가하면 HTML에 안전하게 
  assert.ok(html.includes('&lt;내용&gt; &amp; 기록'));
  assert.ok(html.includes('class="archive-card"'));
 });
+test('실제 HERO 활성 src는 공백 없는 main1~main5 파일을 참조한다',()=>{
+ assert.deepEqual(site.heroSlides.map(slide=>site.photos[slide.photo].src),[1,2,3,4,5].map(n=>`/images/hero/main${n}.png`));
+ const html=render({...site,SITE_URL:'https://example.com/dakko-website/'});
+ for(let n=1;n<=5;n++) assert.ok(html.includes(`src="/dakko-website/images/hero/main${n}.png"`));
+ assert.ok(html.includes('class="photo-placeholder" hidden'));
+});

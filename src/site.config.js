@@ -14,11 +14,11 @@ export const site = {
   // localSrc는 실제 사진을 넣을 예정 경로입니다. 업로드 전에는 src를 비워 placeholder를 유지합니다.
   // 사진 업로드 후 해당 src에 localSrc와 같은 경로를 입력하면 기존 렌더러가 이미지를 표시합니다.
   photos: {
-    hero1: { src: '/images/hero/main 1.png', alt: '불과 연기가 올라오는 석쇠 위 닭발과 아래의 30년 전통 1996 간판' },
-    hero2: { src: '/images/hero/main 2.png', alt: '생활의 달인 1024회 소개 자료와 닥코통닭발 매장 입구' },
-    hero3: { src: '/images/hero/main 3.png', alt: '야구공과 선수 사진, 여러 장의 사인이 걸린 닥코 매장 벽' },
-    hero4: { src: '/images/hero/main 4.png', alt: '접시 위 닭발을 배경으로 젓가락으로 들어 올린 양념 통닭발' },
-    hero5: { src: '/images/hero/main 5.png', alt: '깨가 뿌려진 닭발과 양념 오돌뼈, 김이 함께 놓인 상' },
+    hero1: { src: '/images/hero/main1.png', alt: '불과 연기가 올라오는 석쇠 위 닭발과 아래의 30년 전통 1996 간판' },
+    hero2: { src: '/images/hero/main2.png', alt: '생활의 달인 1024회 소개 자료와 닥코통닭발 매장 입구' },
+    hero3: { src: '/images/hero/main3.png', alt: '야구공과 선수 사진, 여러 장의 사인이 걸린 닥코 매장 벽' },
+    hero4: { src: '/images/hero/main4.png', alt: '접시 위 닭발을 배경으로 젓가락으로 들어 올린 양념 통닭발' },
+    hero5: { src: '/images/hero/main5.png', alt: '깨가 뿌려진 닭발과 양념 오돌뼈, 김이 함께 놓인 상' },
     odolbap: { src: '', localSrc: '/images/hero/02-odolbap.webp', alt: '양념한 오돌뼈와 밥을 비빈 닥코의 오돌밥' },
     wrap: { src: '', alt: '김 위에 오돌밥을 올려 싸 먹는 모습' },
     history: { src: '', localSrc: '/images/hero/01-history.webp', alt: '닥코통닭발의 오래된 간판과 매장 기록' },

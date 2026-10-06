@@ -112,3 +112,15 @@ if (carousel) {
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; syncTimer(); }, { threshold: 0.15 }).observe(carousel);
   syncPlay();
 }
+
+// 이미지 요청이 실패해도 기존 준비 중 안내를 표시합니다.
+for (const image of document.querySelectorAll('.photo-image')) {
+  const fallback = image.nextElementSibling;
+  function showFallback() {
+    if (!fallback?.classList.contains('photo-placeholder')) return;
+    image.hidden = true;
+    fallback.hidden = false;
+  }
+  image.addEventListener('error', showFallback);
+  if (image.complete && image.naturalWidth === 0) showFallback();
+}

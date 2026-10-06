@@ -225,3 +225,4 @@ a:focus-visible, button:focus-visible, .hero-slider:focus-visible { outline-colo
 @media (min-width: 1100px) {
   .hero-slider .hero-photo img { object-position: var(--hero-position, 50% 50%); }
 }
+.photo-image[hidden], .photo-placeholder[hidden] { display: none; }

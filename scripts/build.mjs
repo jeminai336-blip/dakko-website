@@ -1,4 +1,4 @@
-import { mkdir, writeFile, copyFile, cp } from 'node:fs/promises';
+import { mkdir, writeFile, copyFile, cp, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { site } from '../src/site.config.js';
@@ -13,7 +13,8 @@ export function render(config = site) {
  const e = esc;
  const base = safeUrl(process.env.SITE_URL || config.SITE_URL);
  const canonical = base ? `${base.replace(/\/$/, '')}/` : null;
- const assetBase = canonical ? new URL(canonical).pathname : '/';
+ // SITE_URL이 없어도 현재 프로젝트 주소 아래에서 정적 파일을 찾습니다.
+ const assetBase = canonical ? new URL(canonical).pathname : './';
  const asset = value => value.startsWith('/') && !value.startsWith('//') ? `${assetBase}${value.slice(1)}` : value;
  const photo = (key, label, eager = false, framing = null) => {
    const p = config.photos[key] || { src: '', alt: label };
@@ -21,7 +22,8 @@ export function render(config = site) {
    const src = p.src && (/^\/(?!\/)/.test(p.src) || safeUrl(p.src));
    const position = value => /^\d{1,3}% \d{1,3}%$/.test(value || '') ? value : '50% 50%';
    const frameStyle = framing ? ` style="--hero-position:${position(framing.objectPosition)};--hero-mobile-position:${position(framing.mobileObjectPosition)};object-fit:${framing.objectFit === 'contain' ? 'contain' : 'cover'}"` : '';
-   return src ? `<img src="${e(asset(p.src))}" alt="${e(p.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${frameStyle}>` : `<div class="photo-placeholder" role="img" aria-label="${e(p.alt)} — 실제 사진 준비 중"><span class="photo-mark" aria-hidden="true">▧</span><span>${e(label)}</span><small>실제 사진 준비 중</small></div>`;
+   const placeholder = hidden => `<div class="photo-placeholder" ${hidden ? 'hidden' : ''} role="img" aria-label="${e(p.alt)} — 실제 사진 준비 중"><span class="photo-mark" aria-hidden="true">▧</span><span>${e(label)}</span><small>실제 사진 준비 중</small></div>`;
+   return src ? `<img class="photo-image" src="${e(asset(p.src))}" alt="${e(p.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${frameStyle}>${placeholder(true)}` : placeholder(false);
  };
  const cta = (key, label, cls='button', arrow=true) => safeUrl(config[key]) ? `<a class="${cls}" href="${e(safeUrl(config[key]))}" target="_blank" rel="noopener noreferrer">${e(label)}${arrow?'<span aria-hidden="true">↗</span>':''}<span class="sr-only"> (새 창)</span></a>` : `<button class="${cls} unavailable" type="button" disabled>${e(label)}<span class="pending">연결 준비 중</span></button>`;
 
@@ -56,6 +58,14 @@ export function render(config = site) {
 </main><footer class="footer"><div class="wrap"><div class="footer-top"><a class="logo" href="#"><span class="logo-seal">닥코</span><span class="logo-type">통닭발<small>SINCE 1996</small></span></a><p>1996년부터 이어온 인천 동암역의 닭발집.<br>두 세대가 이어가는 맛과 이야기를 기록합니다.</p><div class="social-links">${cta('INSTAGRAM_URL','Instagram','social',false)}${cta('YOUTUBE_URL','YouTube','social',false)}${cta('GOOGLE_MAP_URL','Google 지도','social',false)}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} 닥코통닭발</span><a href="#main">맨 위로 ↑</a></div></div></footer><aside class="mobile-cta" aria-label="빠른 방문 안내">${cta('NAVER_PLACE_URL','네이버에서 닥코 확인하기','button')}</aside></body></html>`;
 }
 export async function build() {
+ // 로컬 HERO 파일 누락은 배포 전에 빌드 오류로 발견합니다.
+ for (const slide of site.heroSlides) {
+   const src = site.photos[slide.photo]?.src;
+   if (src && /^\/(?!\/)/.test(src)) {
+     try { await access(path.join(root, 'public', decodeURIComponent(src.slice(1)))); }
+     catch { throw new Error(`HERO 이미지 파일이 없습니다: public${src}`); }
+   }
+ }
  await mkdir(out,{recursive:true});
  await cp(path.join(root,'public'),out,{recursive:true});
  await writeFile(path.join(out,'index.html'),render());
