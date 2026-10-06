@@ -31,7 +31,7 @@ export const site = {
   },
   // HERO 전용 사진: 본문 섹션의 photos 설정과 분리합니다.
   heroSlides: [
-    { photo: 'hero1', label: '30년', caption: '1996년부터 지금까지, 닥코는 숯불에 직접 굽습니다.', objectPosition: '50% 100%', mobileObjectPosition: '50% 100%', objectFit: 'cover' },
+    { photo: 'hero1', label: '', caption: '1996년부터 지금까지, 닥코는 숯불에 직접 굽습니다.', objectPosition: '50% 100%', mobileObjectPosition: '50% 100%', objectFit: 'cover' },
     { photo: 'hero2', label: '', caption: 'SBS 생활의 달인 - 야구장맛집 편 소개', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero3', label: '30년의 시간', caption: '야구선수들이 즐겨 찾았던 오돌밥과 함께 쌓인 닥코의 기록', objectPosition: '45% 50%', mobileObjectPosition: '40% 50%', objectFit: 'contain' },
     { photo: 'hero4', label: '숯불', caption: '직화로 구워 숯불향가득! 인위적인 매운맛NO! 스트레스 풀리는 맛있게 매운맛!!', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
