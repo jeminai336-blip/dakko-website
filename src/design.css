@@ -531,3 +531,8 @@ body {
 
 /* Stronger backdrop, darker secondary copy for readable text. */
 :root { --muted: #49392b; }
+
+/* Matching sign-style branding in header and footer. */
+.logo-wordmark { align-items: center; }
+.logo-wordmark small { color: #38200e; font-weight: 800; font-size: 10px; letter-spacing: 2px; margin: 5px 0 0; line-height: 1.4; }
+@media (min-width: 600px) { .logo-wordmark small { font-size: 12px; letter-spacing: 2.5px; } }
