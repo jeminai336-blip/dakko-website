@@ -191,10 +191,10 @@ if (film) {
     lastTime = time;
     const length = reel.offsetHeight;
     if (!touching && length > 0) {
-      fractionalScroll += elapsed * .020;
+      fractionalScroll += elapsed * .040;
       const pixels = Math.floor(fractionalScroll);
       fractionalScroll -= pixels;
-      viewport.scrollTop += pixels; // 20px per second; each frame stays visible for many seconds.
+      viewport.scrollTop += pixels; // 40px per second; each frame stays visible for many seconds.
       if (viewport.scrollTop >= length) viewport.scrollTop -= length;
     }
     frame = requestAnimationFrame(tick);
