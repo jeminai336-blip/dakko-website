@@ -505,26 +505,24 @@ main > section:not(.hero):not(.visit-section) h2, .charcoal-title {
   .charcoal-title { font-size: 24px; }
 }
 
-/* Local, non-tiled paper artwork: fibres, creases and edge oxidation. */
-:root { --paper-fiber: url('./textures/aged-paper.svg'); }
-body { background-image: none; }
-.hero, .menu-section > .wrap, .story-layout {
-  background-image: url('./textures/aged-paper.svg');
+/* One continuous local paper scan-like surface; no per-section restart. */
+:root { --paper-fiber: none; }
+body {
+  background-color: #f0e4c6;
+  background-image: url('./textures/natural-paper-desktop.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.hero, .menu-section > .wrap {
-  box-shadow: inset 0 0 20px #80532426, 0 4px 0 #c8b38b;
+.header, .hero, .story-section, .story-layout, .menu-section,
+.menu-section > .wrap, .baseball-section, #records, .record-list,
+.footer, .trust-strip {
+  background-color: transparent;
+  background-image: none;
 }
-.story-layout {
-  background-image: linear-gradient(#f0e3c633, #f0e3c633), url('./textures/aged-paper.svg');
-}
-#odolbap, .baseball-section, #records {
-  background-image: linear-gradient(#f1e5cad9, #f1e5cad9), url('./textures/aged-paper.svg');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.charcoal-feature { background-image: none; }
-.visit-section { background-image: none; }
-/* Keep small secondary copy legible over the darkest paper creases. */
+.hero, .menu-section > .wrap { box-shadow: 0 3px 0 #997b4920; }
+.story-layout { box-shadow: 0 3px 0 #997b4920; }
+.visit-section { background: #fff9e540; }
 .hero .hero-note, .hero .brand-statement, .menu-card p { color: #49392b; }
+@media (max-width: 599px) {
+  body { background-image: url('./textures/natural-paper-mobile.webp'); }
+}
