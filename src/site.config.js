@@ -4,7 +4,7 @@ export const site = {
   title: '닥코통닭발 | 1996년부터 이어온 동암역 숯불 닭발과 오돌밥',
   description: '1996년부터 이어온 인천 동암역 닥코통닭발. 주문 후 숯불에 직접 구워내는 닭발과 야구선수들이 찾아 먹던 오돌밥, 닥코의 30년 이야기를 소개합니다.',
   SITE_URL: '',
-  NAVER_PLACE_URL: 'https://naver.me/GdycDMU8', NAVER_DIRECTIONS_URL: '', PHONE_NUMBER: '',
+  NAVER_PLACE_URL: 'https://naver.me/GdycDMU8', NAVER_DIRECTIONS_URL: 'https://map.naver.com/p/directions/-/3z66t7,2AI1tK,%EB%8B%A5%EC%BD%94%ED%86%B5%EB%8B%AD%EB%B0%9C,16612032,PLACE_POI/-/walk?c=20.00,0,0,2,dh', PHONE_NUMBER: '',
   INSTAGRAM_URL: '', YOUTUBE_URL: '', GOOGLE_MAP_URL: '',
   station: '동암역 북광장 2번출구 50m',
   odolbapVideo: '/videos/odolbap.mp4',
