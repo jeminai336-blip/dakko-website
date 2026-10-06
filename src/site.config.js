@@ -11,13 +11,15 @@ export const site = {
   structuredAddress: { streetAddress: '동암광장로8번길 5 조은빌딩 101호', addressLocality: '부평구', addressRegion: '인천', addressCountry: 'KR' },
   lastOrder: '22:30', closed: '매주 일요일',
   openingHours: { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '17:00', closes: '23:00' },
+  // localSrc는 실제 사진을 넣을 예정 경로입니다. 업로드 전에는 src를 비워 placeholder를 유지합니다.
+  // 사진 업로드 후 해당 src에 localSrc와 같은 경로를 입력하면 기존 렌더러가 이미지를 표시합니다.
   photos: {
-    odolbap: { src: '', alt: '양념한 오돌뼈와 밥을 비빈 닥코의 오돌밥' },
+    odolbap: { src: '', localSrc: '/images/hero/02-odolbap.webp', alt: '양념한 오돌뼈와 밥을 비빈 닥코의 오돌밥' },
     wrap: { src: '', alt: '김 위에 오돌밥을 올려 싸 먹는 모습' },
-    history: { src: '', alt: '닥코통닭발의 오래된 간판과 매장 기록' },
-    charcoal: { src: '', alt: '숯불에 구워내는 닥코통닭발' },
-    baseball: { src: '', alt: '매장에 남아 있는 야구선수 사진과 사인' },
-    media: { src: '', alt: '사용권이 확인된 닥코통닭발의 방송 소개 관련 기록' },
+    history: { src: '', localSrc: '/images/hero/01-history.webp', alt: '닥코통닭발의 오래된 간판과 매장 기록' },
+    charcoal: { src: '', localSrc: '/images/hero/03-charcoal.webp', alt: '숯불에 구워내는 닥코통닭발' },
+    baseball: { src: '', localSrc: '/images/hero/04-baseball.webp', alt: '매장에 남아 있는 야구선수 사진과 사인' },
+    media: { src: '', localSrc: '/images/hero/05-media.webp', alt: '사용권이 확인된 닥코통닭발의 방송 소개 관련 기록' },
   },
   heroSlides: [
     { photo: 'history', label: '30년', caption: '1996년부터 이어온 닥코통닭발' },
