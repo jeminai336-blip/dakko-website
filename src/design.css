@@ -598,3 +598,9 @@ body {
 /* Preserve all four panels of the uploaded odolbap story illustration. */
 .baseball-photo:has(.photo-image) { height: auto; aspect-ratio: auto; }
 .baseball-photo .photo-image { height: auto; object-fit: contain; }
+
+/* Read the four original comic panels vertically at full column width. */
+.baseball-photo:has(.story-comic) { height: auto; aspect-ratio: auto; align-self: start; }
+.story-comic { display: grid; gap: 12px; }
+.story-comic-panel { position: relative; overflow: hidden; aspect-ratio: 1456 / 736; }
+.story-comic-panel img { position: absolute; width: 200%; height: 200%; max-width: none; left: var(--panel-x); top: var(--panel-y); object-fit: fill; }
