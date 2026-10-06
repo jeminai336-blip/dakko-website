@@ -37,7 +37,7 @@ export const site = {
     { photo: 'hero4', label: '숯불', caption: '직화로 구워 숯불향가득! 인위적인 매운맛NO! 스트레스 풀리는 맛있게 매운맛!!', objectPosition: '50% 45%', mobileObjectPosition: '50% 40%', objectFit: 'contain' },
     { photo: 'hero5', label: '한 상', caption: '뼈 바를 필요 없이 한입에 쏙! 쫄깃한 식감과 입안 가득 숯불향. 스트레스 풀리는 매운맛!', objectPosition: '55% 50%', mobileObjectPosition: '55% 50%', objectFit: 'contain' },
     { photo: 'hero6', label: '둘이 오면, 닥코는 이 조합', caption: '불맛 살린 무뼈닭발과 야구선수들이 즐겨 찾았던 오돌밥', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
-    { photo: 'hero7', label: '', caption: '칼칼하고 시원한 맛으로 소주 한 잔 부르는 마성의 국물. 술안주는 물론 식사로도 충분', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
+    { photo: 'hero7', label: '닥코 닭도리탕', caption: '칼칼하고 시원한 맛으로 소주 한 잔 부르는 마성의 국물. 술안주는 물론 식사로도 충분', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero8', label: '곱도리탕', caption: '프리미엄 한우대창 듬뿍 넣어 씹을수록 팡팡 터지는 대창의 고소함과 진하고 녹진한 국물맛!!', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
   ],
   // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
