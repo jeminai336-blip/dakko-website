@@ -154,8 +154,8 @@ if (film) {
   const reel = film.querySelector('.film-reel');
   const track = film.querySelector('.film-track');
   const button = film.querySelector('.film-play');
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  let playing = !motion.matches;
+  // The owner explicitly requested this reel to always start automatically.
+  let playing = true;
   let touching = false;
   let visible = false;
   let lastTime = 0;
@@ -179,23 +179,22 @@ if (film) {
     update();
   }
   function sync() {
-    copies.forEach(item => { item.hidden = motion.matches; });
-    button.hidden = motion.matches;
+    button.hidden = false;
     button.textContent = playing ? 'Ⅱ' : '▶';
     button.setAttribute('aria-label', playing ? '역사 필름 자동 흐름 일시정지' : '역사 필름 자동 흐름 재생');
     cancelAnimationFrame(frame);
     lastTime = 0;
-    if (playing && !motion.matches && visible && !document.hidden) frame = requestAnimationFrame(tick);
+    if (playing && visible && !document.hidden) frame = requestAnimationFrame(tick);
   }
   function tick(time) {
     const elapsed = lastTime ? Math.min(time - lastTime, 60) : 0;
     lastTime = time;
     const length = reel.offsetHeight;
     if (!touching && length > 0) {
-      fractionalScroll += elapsed * .012;
+      fractionalScroll += elapsed * .020;
       const pixels = Math.floor(fractionalScroll);
       fractionalScroll -= pixels;
-      viewport.scrollTop += pixels; // 12px per second; each frame stays visible for many seconds.
+      viewport.scrollTop += pixels; // 20px per second; each frame stays visible for many seconds.
       if (viewport.scrollTop >= length) viewport.scrollTop -= length;
     }
     frame = requestAnimationFrame(tick);
@@ -205,7 +204,6 @@ if (film) {
   const release = () => { touching = false; };
   window.addEventListener('pointerup', release);
   window.addEventListener('pointercancel', release);
-  motion.addEventListener('change', () => { playing = !motion.matches; viewport.scrollTop = 0; sync(); });
   document.addEventListener('visibilitychange', sync);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(film);
   sync();

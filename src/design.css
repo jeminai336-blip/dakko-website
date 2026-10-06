@@ -583,3 +583,5 @@ body {
 .film-photo { position: relative; }
 .history-image { opacity: 1; }
 .film-photo .film-placeholder { position: absolute; inset: 0; min-height: 0; }
+
+.film-window { scroll-behavior: auto; }
