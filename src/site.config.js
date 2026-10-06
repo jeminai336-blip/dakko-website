@@ -40,6 +40,11 @@ export const site = {
     { photo: 'hero7', label: '닥코 닭도리탕', caption: '칼칼하고 시원한 맛으로 소주 한 잔 부르는 마성의 국물. 술안주는 물론 식사로도 충분', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
     { photo: 'hero8', label: '닥코 곱도리탕', caption: '프리미엄 한우대창 듬뿍 넣어 씹을수록 팡팡 터지는 대창의 고소함과 진하고 녹진한 국물맛!!', objectPosition: '50% 50%', mobileObjectPosition: '50% 50%', objectFit: 'contain' },
   ],
+  // 오래된 사진부터 정렬하세요. 정확한 연도/설명이 없으면 빈 값으로 유지합니다.
+  history: [
+    { src: '/images/history/history1.jpg', year: '', caption: '', alt: '' },
+    { src: '/images/history/history2.jpg', year: '', caption: '', alt: '' },
+  ],
   // 확인된 사진·사인·설명이 생기면 항목을 추가합니다. 선수 이름·날짜를 추측하지 마세요.
   baseballArchive: [], // { photo: 'photos의 키', title: '확인된 제목', description: '확인된 내용', date: '확인된 날짜(선택)' }
   menus: [

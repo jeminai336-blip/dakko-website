@@ -146,3 +146,72 @@ for (const image of document.querySelectorAll('.photo-image')) {
   image.addEventListener('error', showFallback);
   if (image.complete && image.naturalWidth === 0) showFallback();
 }
+
+// History film: native vertical scrolling plus a slow, seamless reel loop.
+const film = document.querySelector('.history-film');
+if (film) {
+  const viewport = film.querySelector('.film-window');
+  const reel = film.querySelector('.film-reel');
+  const track = film.querySelector('.film-track');
+  const button = film.querySelector('.film-play');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  let playing = !motion.matches;
+  let hovered = false;
+  let touching = false;
+  let visible = false;
+  let pauseUntil = 0;
+  let lastTime = 0;
+  let fractionalScroll = 0;
+  let frame;
+  const copy = reel.cloneNode(true);
+  copy.setAttribute('aria-hidden', 'true');
+  copy.inert = true;
+  const copies = [copy, copy.cloneNode(true), copy.cloneNode(true)];
+  track.append(...copies);
+  for (const img of track.querySelectorAll('.history-image')) {
+    const placeholder = img.nextElementSibling;
+    const update = () => {
+      const loaded = img.complete && img.naturalWidth > 0;
+      img.hidden = !loaded;
+      placeholder.hidden = loaded;
+    };
+    img.addEventListener('load', update);
+    img.addEventListener('error', update);
+    update();
+  }
+  function sync() {
+    copies.forEach(item => { item.hidden = motion.matches; });
+    button.hidden = motion.matches;
+    button.textContent = playing ? 'Ⅱ' : '▶';
+    button.setAttribute('aria-label', playing ? '역사 필름 자동 흐름 일시정지' : '역사 필름 자동 흐름 재생');
+    cancelAnimationFrame(frame);
+    lastTime = 0;
+    if (playing && !motion.matches && visible && !document.hidden) frame = requestAnimationFrame(tick);
+  }
+  function tick(time) {
+    const elapsed = lastTime ? Math.min(time - lastTime, 60) : 0;
+    lastTime = time;
+    const length = reel.offsetHeight;
+    if (!hovered && !touching && !viewport.contains(document.activeElement) && Date.now() >= pauseUntil && length > 0) {
+      fractionalScroll += elapsed * .012;
+      const pixels = Math.floor(fractionalScroll);
+      fractionalScroll -= pixels;
+      viewport.scrollTop += pixels; // 12px per second; each frame stays visible for many seconds.
+      if (viewport.scrollTop >= length) viewport.scrollTop -= length;
+    }
+    frame = requestAnimationFrame(tick);
+  }
+  button.addEventListener('click', () => { playing = !playing; sync(); });
+  film.addEventListener('mouseenter', () => { hovered = true; });
+  film.addEventListener('mouseleave', () => { hovered = false; });
+  viewport.addEventListener('pointerdown', () => { touching = true; });
+  const release = () => { touching = false; pauseUntil = Date.now() + 5000; };
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
+  viewport.addEventListener('wheel', () => { pauseUntil = Date.now() + 5000; }, { passive: true });
+  viewport.addEventListener('keydown', () => { pauseUntil = Date.now() + 5000; });
+  motion.addEventListener('change', () => { playing = !motion.matches; viewport.scrollTop = 0; sync(); });
+  document.addEventListener('visibilitychange', sync);
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(film);
+  sync();
+}

@@ -33,9 +33,9 @@ test('공식 배포 URL이 있어야 canonical을 생성하며 설정 문자를 
  assert.ok(!html.includes('<script>bad</script>'));
 });
 test('GitHub Pages 저장소 하위 경로에서 CSS, JS, 이미지 주소를 유지한다',()=>{
- const config={...site,SITE_URL:'https://example.com/dakko-website',photos:{...site.photos,history:{src:'/images/hero.webp',alt:'실제 사진'}}};
+ const config={...site,SITE_URL:'https://example.com/dakko-website',history:[{src:'/images/history/test.jpg',year:'',caption:''}]};
  const html=render(config);
- for(const asset of ['style.css','design.css','client.js','favicon.svg','images/hero.webp']) assert.ok(html.includes(`/dakko-website/${asset}`));
+ for(const asset of ['style.css','design.css','client.js','favicon.svg','images/history/test.jpg']) assert.ok(html.includes(`/dakko-website/${asset}`));
  assert.ok(html.includes('rel="canonical" href="https://example.com/dakko-website/"'));
 });
 test('V3 섹션과 내비게이션이 고객 흐름 순서를 유지한다', () => {
@@ -81,4 +81,15 @@ test('실제 HERO 활성 src는 공백 없는 main1~main8 파일을 참조한다
  for(let n=1;n<=8;n++) assert.ok(html.includes(`src="/dakko-website/images/hero/main${n}.png"`));
  const hero = html.split('<section class="hero wrap"')[1].split('</section>')[0];
  assert.ok(!hero.includes('photo-placeholder'));
+});
+
+test('역사 필름은 설정 순서와 확인된 캡션을 유지한다', () => {
+ const config = {...site, SITE_URL:'https://jeminai336-blip.github.io/dakko-website/', history:[{src:'/images/history/old.jpg',year:'1996',caption:'닥코의 시작'},{src:'/images/history/new.jpg',year:'',caption:''}]};
+ const html=render(config);
+ assert.ok(html.indexOf('/images/history/old.jpg') < html.indexOf('/images/history/new.jpg'));
+ assert.ok(html.includes('src="/dakko-website/images/history/old.jpg"'));
+ assert.ok(html.includes('<span>1996</span><span>닥코의 시작</span>'));
+ assert.equal((html.match(/class="film-frame"/g)||[]).length,2);
+ assert.equal((html.match(/<figcaption>/g)||[]).length,1);
+ assert.ok(html.includes('30년 동안<br>누군가의 청춘과<br>함께했습니다.'));
 });
