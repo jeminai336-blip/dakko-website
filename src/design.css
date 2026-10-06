@@ -539,3 +539,12 @@ body {
 
 .hero-copy > .eyebrow { font-size: 13px; }
 @media (min-width: 1100px) { .hero-copy > .eyebrow { font-size: 14px; } }
+
+/* More visible Naver Place button against the brand background. */
+.hero-actions .button.outline {
+  background: #dfc59e;
+  border-color: #8f4b36;
+  color: #70251f;
+  box-shadow: 0 2px 0 #6f44252b;
+}
+.hero-actions .button.outline:hover { background: #d1af7f; border-color: #70251f; }
